@@ -1,4 +1,4 @@
-# Building GPT-2 from Scratch: An Internal Xapien Project
+# Building GPT-2 from Scratch: An Hands on Guide
 
 ## Introduction
 Welcome, Xapien Engineers! We're excited to announce a hands-on seminar series aimed at building a working version of GPT-2 from scratch using PyTorch. This seminar will be the longest and most challenging project we've tackled, but it promises to be the most rewarding and insightful experience for our reading group.
@@ -45,6 +45,10 @@ To get the most out of this seminar, we recommend familiarizing yourself with th
 ### Implementation Strategy
 We will adopt a "fill-in-the-blanks" approach, where you will complete code snippets with provided references and support. This method ensures that everyone can participate, regardless of their prior experience with PyTorch or mathematical concepts.
 
+## Project Details
+### Lab notes
+Inside of **notes** will be a weekly uploaded markdown file giving a set of potential pointers to accompany the in person lab. Read them as your enter that part of the project!
+
 ### Reference Implementation
 Much of the implementation will be adapted from Karpathy's [nanoGPT](https://github.com/karpathy/nanoGPT), with modifications to include unit tests and make the content more accessible.
 
@@ -58,6 +62,6 @@ Let's build something cool!
 
 ---
 
-**Contact**: If you have any questions or need further assistance, please reach out to Charlie!
+**Contact**: If you have any questions or need further assistance, please reach out to Charlie by raising an issue on this branch!
 
 Happy coding!
