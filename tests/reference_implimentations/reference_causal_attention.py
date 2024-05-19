@@ -50,24 +50,16 @@ class CausalSelfAttention(nn.Module):
         # Reshape from (B, T, n_embd) -> (B, T, n_head, head_dim)
         # head_dim is calculated as n_embd // n_head
         # Then transpose to (B, n_head, T, head_dim) to make heads a separate dimension
-        q = q.view(B, T, self.n_head, C // self.n_head).transpose(
-            1, 2
-        )  # (B, n_head, T, head_dim)
-        k = k.view(B, T, self.n_head, C // self.n_head).transpose(
-            1, 2
-        )  # (B, n_head, T, head_dim)
-        v = v.view(B, T, self.n_head, C // self.n_head).transpose(
-            1, 2
-        )  # (B, n_head, T, head_dim)
+        q = q.view(B, T, self.n_head, C // self.n_head).transpose(1, 2)  # (B, n_head, T, head_dim)
+        k = k.view(B, T, self.n_head, C // self.n_head).transpose(1, 2)  # (B, n_head, T, head_dim)
+        v = v.view(B, T, self.n_head, C // self.n_head).transpose(1, 2)  # (B, n_head, T, head_dim)
 
         # Reshape again to merge the batch size and number of heads into a single dimension
         # This prepares the tensors for batch matrix multiplication
         # Reshape from (B, n_head, T, head_dim) to (B * n_head, T, head_dim) for q
         # and to (B * n_head, head_dim, T) for k to allow batched matrix multiplication
         q = q.reshape(-1, T, C // self.n_head)  # Shape: (B * n_head, T, head_dim)
-        k = k.reshape(-1, T, C // self.n_head).transpose(
-            1, 2
-        )  # Shape: (B * n_head, head_dim, T)
+        k = k.reshape(-1, T, C // self.n_head).transpose(1, 2)  # Shape: (B * n_head, head_dim, T)
         v = v.reshape(-1, T, C // self.n_head)  # Shape: (B* n_head, T, head_dimention)
 
         # Perform batch matrix multiplication to compute attention scores
