@@ -11,5 +11,5 @@ class LayerNorm(nn.Module):
         self.weight = nn.Parameter(torch.ones(ndim))
         self.bias = nn.Parameter(torch.zeros(ndim)) if bias else None
 
-    def forward(self, input):
+    def forward(self, input: torch.Tensor)->torch.Tensor:
         return F.layer_norm(input, self.weight.shape, self.weight, self.bias, 1e-5)

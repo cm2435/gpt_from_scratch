@@ -28,7 +28,7 @@ class CausalSelfAttention(nn.Module):
         self.n_embd = config.n_embd
         self.dropout = config.dropout
 
-    def forward(self, x: torch.tensor, use_dropout: bool = False) -> torch.tensor:
+    def forward(self, x: torch.Tensor, use_dropout: bool = False) -> torch.Tensor:
         """
         Perform multi-head attention using three projection matrices.
 
