@@ -18,14 +18,13 @@ class CausalSelfAttention(nn.Module):
         # Output projection
         self.c_proj = nn.Linear(config.n_embd, config.n_embd, bias=config.bias)
 
-        # Regularization
+        #Dropout hyperparams for Regularization
         self.attn_dropout = nn.Dropout(config.dropout)
         self.resid_dropout = nn.Dropout(config.dropout)
 
-        # Number of heads for multi head attention, embedding size, and dropout rate.
+        # Number of heads for multi head attention and embedding size
         self.n_head = config.n_head
         self.n_embd = config.n_embd
-        self.dropout = config.dropout
 
     def forward(self, x: torch.Tensor, use_dropout: bool = False):
         """
